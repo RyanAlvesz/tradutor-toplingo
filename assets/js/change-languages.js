@@ -1,21 +1,48 @@
 'use strict'
 
-const mainLanguage = document.getElementById('main-language')
-const secundaryLanguage = document.getElementById('secundary-language')
-const changeLanguageButton = document.getElementById('change-translate')
-const translateContainer = document.getElementById('translate-container')
+const languageButton = document.getElementsByClassName('language-button')
 let standardTranslate = true
 
-changeLanguageButton.addEventListener('click', () => {
+for (let button of languageButton) {
 
-    if (standardTranslate) {
-        mainLanguage.classList.add('order-last')
-        secundaryLanguage.classList.add('order-first')
-        standardTranslate = false
-    } else {
-        mainLanguage.classList.remove('order-last')
-        secundaryLanguage.classList.remove('order-first')
-        standardTranslate = true
+    button.children[1].addEventListener('click', (e) => {
+        
+        e.target.parentNode.parentNode.appendChild(createLanguageButtons(languages[0]))
+        e.target.parentNode.parentNode.remove(e.target.parentNode)
+
+    })
+
+}
+
+const languages = [
+
+    {
+        id: 'pt-br',
+        src: './img/brazil-flag.png',
+        alt: 'Bandeira do Brasil'
+    },
+    {
+        id: 'en',
+        src: './img/us-flag.png',
+        alt: 'Bandeira dos Estados Unidos'
     }
 
-})
+]
+
+
+const createLanguageButtons = (language) => {
+
+    const div = document.createElement('div')
+    div.classList.add('language-button', 'flex', 'items-center', 'justify-center', 'rounded-full')
+    
+    const img = document.createElement('img')
+    language.classList.add('w-12', 'h-12')
+    img.src = language.src
+    img.alt = language.languageButton
+    img.id = language.id
+     
+    div.appendChild(img)
+
+    return div
+
+}

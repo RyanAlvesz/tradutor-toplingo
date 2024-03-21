@@ -9,8 +9,12 @@ const traduzir = async (texto) => {
 }
 
 const montarTraducao = async () => {
-    const traducao = await traduzir(textareaFrom.value)
-    textareaTo.value = traducao
+    if (!textareaFrom.value == '') {
+        const traducao = await traduzir(textareaFrom.value)
+        textareaTo.value = traducao
+    }else{
+        textareaTo.value = 'Digite algo para traduzir!'
+    }
 }
 
 textareaFrom.addEventListener('change', montarTraducao)
