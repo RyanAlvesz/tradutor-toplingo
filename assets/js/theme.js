@@ -12,8 +12,8 @@ const addTheme = () => {
     }
 }    
 
-darkThemeButton.addEventListener('click', () => {
-
+export const  changeTheme = () => {
+    
     if (localStorage.getItem('theme') == 'dark') {
         darkThemeButton.children[0].children[0].srcset = './assets/img/moon-mobile.svg'
         darkThemeButton.children[0].children[1].src = './assets/img/moon.svg'
@@ -25,9 +25,7 @@ darkThemeButton.addEventListener('click', () => {
         localStorage.setItem('theme', 'dark')
         addTheme()
     }
+}
 
-
-})
-
+darkThemeButton.addEventListener('click', changeTheme)
 window.addEventListener('load', () => addTheme)
-  
