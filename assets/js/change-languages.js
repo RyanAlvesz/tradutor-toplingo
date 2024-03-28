@@ -1,48 +1,54 @@
 'use strict'
 
-const languageButton = document.getElementsByClassName('language-button')
+const filter1 = document.getElementById('language-filter-1')
+const filter2 = document.getElementById('language-filter-2')
+const buttonChangeTranslate = document.getElementById('change-translate')
 let standardTranslate = true
-
-for (let button of languageButton) {
-
-    button.children[1].addEventListener('click', (e) => {
-        
-        e.target.parentNode.parentNode.appendChild(createLanguageButtons(languages[0]))
-        e.target.parentNode.parentNode.remove(e.target.parentNode)
-
-    })
-
-}
 
 const languages = [
 
     {
         id: 'pt-br',
-        src: './img/brazil-flag.png',
-        alt: 'Bandeira do Brasil'
+        src: './assets/img/brazil-flag.png',
+        alt: 'Bandeira do Brasil',
+        placeholder: 'Olá, Mundo!'
     },
     {
         id: 'en',
-        src: './img/us-flag.png',
-        alt: 'Bandeira dos Estados Unidos'
+        src: './assets/img/us-flag.png',
+        alt: 'Bandeira dos Estados Unidos',
+        placeholder: 'Hello, World!'
+    },
+    {
+        id: 'es-es',
+        src: './assets/img/spain-flag.png',
+        alt: 'Bandeira da Espanha',
+        placeholder: 'Hola, Mundo!'
     }
 
 ]
 
+export const changeLanguage = (input, language) => {
 
-const createLanguageButtons = (language) => {
+    languages.forEach(languageJson => {
+      
+        if (languageJson.id == language) {
 
-    const div = document.createElement('div')
-    div.classList.add('language-button', 'flex', 'items-center', 'justify-center', 'rounded-full')
-    
-    const img = document.createElement('img')
-    language.classList.add('w-12', 'h-12')
-    img.src = language.src
-    img.alt = language.languageButton
-    img.id = language.id
-     
-    div.appendChild(img)
+            input.nextElementSibling.children[1].children[0].src = languageJson.src
+            input.nextElementSibling.children[1].children[0].alt = languageJson.alt
+            input.nextElementSibling.children[0].placeholder = languageJson.placeholder
 
-    return div
+        }
+
+    })
 
 }
+
+
+filter1.addEventListener('change', () => {
+    changeLanguage(filter1, filter1.value)
+})
+
+filter2.addEventListener('change', () => {
+    changeLanguage(filter2, filter2.value)
+})
