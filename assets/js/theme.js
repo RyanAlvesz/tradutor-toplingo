@@ -15,12 +15,14 @@ const addTheme = () => {
 export const  changeTheme = () => {
     
     if (localStorage.getItem('theme') == 'dark') {
-        darkThemeButton.children[0].src = './assets/img/moon.svg'
-        localStorage.theme = 'light'
+        darkThemeButton.children[0].children[0].srcset = './assets/img/moon-mobile.svg'
+        darkThemeButton.children[0].children[1].src = './assets/img/moon.svg'
+        localStorage.setItem('theme', 'light')
         addTheme()
     } else {
-        darkThemeButton.children[0].src = './assets/img/sun.svg'
-        localStorage.theme = 'dark'
+        darkThemeButton.children[0].children[0].srcset = './assets/img/sun.svg'
+        darkThemeButton.children[0].children[1].src = './assets/img/sun.svg'
+        localStorage.setItem('theme', 'dark')
         addTheme()
     }
 }
