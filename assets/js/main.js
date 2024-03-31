@@ -8,6 +8,7 @@ const textareaTo = document.getElementById("secundary-language-input")
 const languageFrom = document.getElementById('language-filter-1')
 const languageTo = document.getElementById('language-filter-2')
 const buttonChangeTranslate = document.getElementById('change-translate')
+const form = document.getElementById('form')
 let infoTraducao
 
 
@@ -87,5 +88,6 @@ textareaFrom.addEventListener('keypress', (e) => {
 
 })
 
-
-
+form.addEventListener('submit', (e) => {
+    e.preventDefault()
+})
