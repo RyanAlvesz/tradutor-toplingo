@@ -2,28 +2,32 @@
 
 const filter1 = document.getElementById('language-filter-1')
 const filter2 = document.getElementById('language-filter-2')
-const buttonChangeTranslate = document.getElementById('change-translate')
-let standardTranslate = true
 
-const languages = [
+export const languages = [
 
     {
         id: 'pt-br',
         src: './assets/img/brazil-flag.png',
         alt: 'Bandeira do Brasil',
-        placeholder: 'Olá, Mundo!'
+        placeholder: 'Olá, Mundo!',
+        lang: 'pt-BR',
+        voice: 16
     },
     {
         id: 'en',
         src: './assets/img/us-flag.png',
         alt: 'Bandeira dos Estados Unidos',
-        placeholder: 'Hello, World!'
+        placeholder: 'Hello, World!',
+        lang: 'en-ES',
+        voice: 3
     },
     {
         id: 'es-es',
         src: './assets/img/spain-flag.png',
         alt: 'Bandeira da Espanha',
-        placeholder: 'Hola, Mundo!'
+        placeholder: 'Hola, Mundo!',
+        lang: 'es-ES',
+        voice: 6
     }
 
 ]

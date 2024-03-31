@@ -3,7 +3,7 @@
 const darkThemeButton = document.getElementById('dark-mode')
 
 const addTheme = () => {
-    if (localStorage.theme == 'dark'){
+    if (localStorage.getItem('theme') == 'dark'){
         document.documentElement.classList.add('dark')        
         const changeLanguageButton = document.getElementById('change-translate').children[0].src = './assets/img/change-white.svg'
     } else {
@@ -12,7 +12,7 @@ const addTheme = () => {
     }
 }    
 
-export const  changeTheme = () => {
+export const changeTheme = () => {
     
     if (localStorage.getItem('theme') == 'dark') {
         darkThemeButton.children[0].children[0].srcset = './assets/img/moon-mobile.svg'
@@ -28,4 +28,4 @@ export const  changeTheme = () => {
 }
 
 darkThemeButton.addEventListener('click', changeTheme)
-window.addEventListener('load', () => addTheme)
+window.addEventListener('load', addTheme)
