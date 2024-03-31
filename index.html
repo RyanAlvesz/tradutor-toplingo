@@ -23,18 +23,23 @@
         </picture>
     </button>
     <header class="flex items-center justify-center pl-[5vw] py-2 pr-2 max-md:pr-4">
-        <h1 class="text-[6rem] text-main dark:text-white font-bold max-md:text-3xl"> TopLingo </h1>
+        <h1 class="text-[5.5rem] text-main dark:text-white font-bold max-md:text-[3rem]"> TopLingo </h1>
     </header>
-    <main id="translate-container" class="flex flex-col items-center pl-[calc(5vw+10vw)] pr-[10vw] py-2 gap-32 max-md:pl-4 max-md:gap-16 max-md:pr-4">
+    <main id="translate-container" class="flex flex-col items-center pl-[calc(5vw+10vw)] pr-[10vw] py-2 gap-32 max-md:pl-4 max-md:gap-16 max-md:pr-4 max-md:py-6">
         <form class="flex flex-col gap-2 w-full" id="form">
             <select id="language-filter-1" class="w-fit dark:bg-black dark:text-white focus:outline-none">
                 <option class="dark:bg-black" value="pt-br">Português</option>
                 <option class="dark:bg-black" value="en">Inglês</option>
                 <option class="dark:bg-black" value="es-es">Espanhol</option>
             </select>
-            <div class="flex items-center gap-2 w-full">
-                <input id="main-language-input" autocomplete="off" type="text" placeholder="Olá Mundo!" class="ml-[2px] bg-transparent focus:outline-none flex-grow h-full text-xl border-b-[1px] border-black/30 focus:border-main dark:text-white dark:focus:border-white/80 dark:border-white/30">
-                <div id="main-language" class="flex items-center justify-center rounded-full overflow-hidden">
+            <div class="flex items-center gap-4 w-full">
+                <div class="flex w-full h-full items-center border-b border-black/30 dark:border-white/30 dark:focus:border-white/80 max-md:py-3">
+                    <input id="main-language-input" autocomplete="off" type="text" placeholder="Olá Mundo!" class="ml-[2px] bg-transparent focus:outline-none flex-grow h-full text-xl dark:text-white">
+                    <button id="talk-button" type="button" class="h-8 w-8 flex items-center justify-center rounded-full overflow-hidden bg-main">
+                        <img src="./assets/img/mic-empty.svg" alt="Microfone" id="mic" class="w-[60%] h-[60%] object-cover">
+                    </button>
+                </div>
+                <div id="main-language" class="flex items-center justify-center rounded-full overflow-hidden max-md:hidden flex-shrink-0">
                     <img id="pt-br" src="./assets/img/brazil-flag.png" alt="Bandeira do Brasil" class="w-12 h-12 object-cover">
                 </div>
             </div>
@@ -48,18 +53,23 @@
                 <option class="dark:bg-black" value="pt-br">Português</option>
                 <option class="dark:bg-black" value="es-es">Espanhol</option>
             </select>
-            <div class="flex items-center gap-2 w-full">
-                <input id="secundary-language-input" type="text" disabled="on" placeholder="Hello Word!" class="ml-[2px] bg-transparent focus:outline-none placeholder:text-main flex-grow h-full text-xl border-b-[1px] border-black/30 text-main focus:border-main dark:text-white dark:focus:border-white/80 dark:border-white/30">
-                <div id="secundary-language" class="flex items-center justify-center rounded-full overflow-hidden">
+            <div class="flex items-center gap-4 w-full">
+                <div class="flex w-full h-full items-center border-b border-black/30 dark:border-white/30 dark:focus:border-white/80 max-md:py-3">
+                    <input id="secundary-language-input" type="text" disabled="on" value="Hello World!" class="ml-[2px] bg-transparent flex-grow h-full text-xl text-main dark:text-white">
+                    <button id="copy-button" class="h-8 w-8 flex items-center justify-center rounded-full bg-main relative">
+                        <img src="./assets/img/copy.svg" alt="Copiar" class="w-[65%] h-[65%] object-cover">
+                    </button>
+                </div>
+                <div id="secundary-language" class="flex items-center justify-center rounded-full overflow-hidden max-md:hidden flex-shrink-0">
                     <img id="en" src="./assets/img/us-flag.png" alt="Bandeira do Estados Unidos" class="w-12 h-12 object-cover">
                 </div>
             </div>
         </div>
     </main>
     <footer class="flex items-center justify-center gap-3 pl-[5vw] py-2 pr-2 dark:text-white max-md:pl-4 max-md:pr-4">
-        <span class="text-xl max-md:text-base"> 💞🌹 </span>
+        <span class="text-xl max-md:text-base"> 🪻🪻 </span>
         <span class="text-xl max-md:text-base"> Ryan Alves e Pedro Mineiro</span>
-        <span class="text-xl max-md:text-base"> 🌹💞 </span>
+        <span class="text-xl max-md:text-base"> 🪻🪻 </span>
     </footer>
 </body>
 </html>

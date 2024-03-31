@@ -3,6 +3,8 @@
 const filter1 = document.getElementById('language-filter-1')
 const filter2 = document.getElementById('language-filter-2')
 
+// Definindo as línguas e suas informações
+
 export const languages = [
 
     {
@@ -11,7 +13,7 @@ export const languages = [
         alt: 'Bandeira do Brasil',
         placeholder: 'Olá, Mundo!',
         lang: 'pt-BR',
-        voice: 16
+        voice: 16,
     },
     {
         id: 'en',
@@ -31,6 +33,10 @@ export const languages = [
     }
 
 ]
+
+
+
+// Trocar a língua
 
 export const changeLanguage = (input, language) => {
 
