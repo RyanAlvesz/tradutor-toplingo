@@ -16,13 +16,13 @@
 </head>
 <body class="h-screen grid grid-rows-[20vh_1fr_10vh] font-inter gap-4 dark:bg-black max-md:grid-rows-[10vh_10vh_1fr_10vh]">
     <div class="bg-main absolute h-screen w-[5vw] max-md:w-screen max-md:h-[10vh] max-md:top-0"></div>
-    <button id="dark-mode" class="absolute flex items-center justify-end right-6 top-6 max-md:relative max-md:top-0 max-md:right-0 max-md:px-4">
+    <button id="dark-mode" class="absolute focus:outline-none flex items-center justify-end right-6 top-6 max-md:relative max-md:top-0 max-md:right-0 max-md:px-4">
         <picture class="h-10 w-10 flex">
             <source media="(max-width: 765px)" srcset="./assets/img/moon-mobile.svg" class="w-full h-full">
             <img src="./assets/img/moon.svg" alt="Modo escuro" class="w-full h-full">
         </picture>
     </button>
-    <header class="flex items-center justify-center pl-[5vw] py-2 pr-2 max-md:pr-4">
+    <header class="flex items-center justify-center pl-[5vw] py-2 pr-2 max-md:pr-0 max-md:pl-0">
         <h1 class="text-[5.5rem] text-main dark:text-white font-bold max-md:text-[3rem]"> TopLingo </h1>
     </header>
     <main id="translate-container" class="flex flex-col items-center pl-[calc(5vw+10vw)] pr-[10vw] py-2 gap-32 max-md:pl-4 max-md:gap-16 max-md:pr-4 max-md:py-6">
@@ -33,10 +33,13 @@
                 <option class="dark:bg-black" value="es-es">Espanhol</option>
             </select>
             <div class="flex items-center gap-4 w-full">
-                <div class="flex w-full h-full items-center border-b border-black/30 dark:border-white/30 dark:focus:border-white/80 max-md:py-3">
+                <div class="gap-2 flex w-full h-full items-center border-b border-black/30 dark:border-white/30 dark:focus:border-white/80 max-md:py-3">
                     <input id="main-language-input" autocomplete="off" type="text" placeholder="Olá Mundo!" class="ml-[2px] bg-transparent focus:outline-none flex-grow h-full text-xl dark:text-white">
                     <button id="talk-button" type="button" class="h-8 w-8 flex items-center justify-center rounded-full overflow-hidden bg-main">
                         <img src="./assets/img/mic-empty.svg" alt="Microfone" id="mic" class="w-[60%] h-[60%] object-cover">
+                    </button>
+                    <button type="button" id="button-1" class="read-text h-8 w-8 flex items-center justify-center rounded-full overflow-hidden bg-main max-[400px]:hidden">
+                        <img src="./assets/img/audio.svg" alt="Áudio" class="w-[60%] h-[60%] object-cover">
                     </button>
                 </div>
                 <div id="main-language" class="flex items-center justify-center rounded-full overflow-hidden max-md:hidden flex-shrink-0">
@@ -54,10 +57,13 @@
                 <option class="dark:bg-black" value="es-es">Espanhol</option>
             </select>
             <div class="flex items-center gap-4 w-full">
-                <div class="flex w-full h-full items-center border-b border-black/30 dark:border-white/30 dark:focus:border-white/80 max-md:py-3">
-                    <input id="secundary-language-input" type="text" disabled="on" value="Hello World!" class="ml-[2px] bg-transparent flex-grow h-full text-xl text-main dark:text-white">
+                <div class="gap-2 flex w-full h-full items-center border-b border-black/30 dark:border-white/30 dark:focus:border-white/80 max-md:py-3">
+                    <input id="secundary-language-input" type="text" disabled="on" placeholder="Hello World!" class="ml-[2px] bg-transparent flex-grow h-full text-xl placeholder:text-main text-main dark:text-white dark:placeholder:text-white">
                     <button id="copy-button" class="h-8 w-8 flex items-center justify-center rounded-full bg-main relative">
                         <img src="./assets/img/copy.svg" alt="Copiar" class="w-[65%] h-[65%] object-cover">
+                    </button>
+                    <button type="button" id="button-2" class="read-text h-8 w-8 flex items-center justify-center rounded-full overflow-hidden bg-main max-[400px]:hidden">
+                        <img src="./assets/img/audio.svg" alt="Áudio" class="w-[60%] h-[60%] object-cover">
                     </button>
                 </div>
                 <div id="secundary-language" class="flex items-center justify-center rounded-full overflow-hidden max-md:hidden flex-shrink-0">
@@ -67,9 +73,9 @@
         </div>
     </main>
     <footer class="flex items-center justify-center gap-3 pl-[5vw] py-2 pr-2 dark:text-white max-md:pl-4 max-md:pr-4">
-        <span class="text-xl max-md:text-base"> 🪻🪻 </span>
+        <span class="text-xl max-md:text-base"> 🪻 </span>
         <span class="text-xl max-md:text-base"> Ryan Alves e Pedro Mineiro</span>
-        <span class="text-xl max-md:text-base"> 🪻🪻 </span>
+        <span class="text-xl max-md:text-base"> 🪻 </span>
     </footer>
 </body>
 </html>

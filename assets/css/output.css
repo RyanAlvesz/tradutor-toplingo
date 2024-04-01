@@ -578,12 +578,20 @@ video {
   margin-left: 2px;
 }
 
+.inline {
+  display: inline;
+}
+
 .flex {
   display: flex;
 }
 
 .grid {
   display: grid;
+}
+
+.hidden {
+  display: none;
 }
 
 .h-10 {
@@ -612,6 +620,22 @@ video {
 
 .h-screen {
   height: 100vh;
+}
+
+.h-auto {
+  height: auto;
+}
+
+.max-h-\[auto\] {
+  max-height: auto;
+}
+
+.max-h-none {
+  max-height: none;
+}
+
+.min-h-0 {
+  min-height: 0px;
 }
 
 .w-10 {
@@ -677,6 +701,14 @@ video {
   animation: scale 1s ease-in-out infinite;
 }
 
+.resize-none {
+  resize: none;
+}
+
+.resize {
+  resize: both;
+}
+
 .grid-rows-\[20vh_1fr_10vh\] {
   grid-template-rows: 20vh 1fr 10vh;
 }
@@ -727,6 +759,10 @@ video {
 
 .rounded-md {
   border-radius: 0.375rem;
+}
+
+.border {
+  border-width: 1px;
 }
 
 .border-b {
@@ -812,6 +848,16 @@ video {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.placeholder\:text-main::-moz-placeholder {
+  --tw-text-opacity: 1;
+  color: rgb(91 11 155 / var(--tw-text-opacity));
+}
+
+.placeholder\:text-main::placeholder {
+  --tw-text-opacity: 1;
+  color: rgb(91 11 155 / var(--tw-text-opacity));
+}
+
 .focus\:outline-none:focus {
   outline: 2px solid transparent;
   outline-offset: 2px;
@@ -877,6 +923,14 @@ video {
     padding-right: 1rem;
   }
 
+  .max-md\:pl-0 {
+    padding-left: 0px;
+  }
+
+  .max-md\:pr-0 {
+    padding-right: 0px;
+  }
+
   .max-md\:text-\[3rem\] {
     font-size: 3rem;
   }
@@ -884,6 +938,22 @@ video {
   .max-md\:text-base {
     font-size: 1rem;
     line-height: 1.5rem;
+  }
+}
+
+@media not all and (min-width: 640px) {
+  .max-sm\:hidden {
+    display: none;
+  }
+
+  .max-sm\:pr-2 {
+    padding-right: 0.5rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .max-\[400px\]\:hidden {
+    display: none;
   }
 }
 
@@ -897,6 +967,26 @@ video {
 }
 
 .dark\:text-white:where(.dark, .dark *) {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.dark\:placeholder\:text-main:where(.dark, .dark *)::-moz-placeholder {
+  --tw-text-opacity: 1;
+  color: rgb(91 11 155 / var(--tw-text-opacity));
+}
+
+.dark\:placeholder\:text-main:where(.dark, .dark *)::placeholder {
+  --tw-text-opacity: 1;
+  color: rgb(91 11 155 / var(--tw-text-opacity));
+}
+
+.dark\:placeholder\:text-white:where(.dark, .dark *)::-moz-placeholder {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.dark\:placeholder\:text-white:where(.dark, .dark *)::placeholder {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }

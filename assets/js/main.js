@@ -1,7 +1,7 @@
 'use strict'
 
 import { changeTheme } from "./theme.js"
-import { changeLanguage, languages } from "./change-languages.js";
+import { changeLanguage, languages } from "./change-languages.js"
 
 const textareaFrom = document.getElementById("main-language-input")
 const textareaTo = document.getElementById("secundary-language-input")
@@ -11,7 +11,7 @@ const buttonChangeTranslate = document.getElementById('change-translate')
 const form = document.getElementById('form')
 const copyButton = document.getElementById('copy-button')
 const talkButton = document.getElementById('talk-button')
-
+const readTextButtons = document.getElementsByClassName('read-text')
 
 
 // Função para selecionar o JSON com as informações de determinada língua baseada no valor do select
@@ -51,14 +51,10 @@ const traduzir = async (texto) => {
 
 const montarTraducao = async () => {
     
-    let traducao, infoTraducao = getTranslateInfo(languageTo)
-
     if(!alice()){
-        traducao = await traduzir(textareaFrom.value?textareaFrom.value:'Olá Mundo!')
+        let traducao = await traduzir(textareaFrom.value?textareaFrom.value:'Olá Mundo!')
         textareaTo.value = traducao    
     }
-
-    lerTexto(textareaTo.value, infoTraducao)
 
 }
 
@@ -83,7 +79,7 @@ const alice = () => {
 
 const lerTexto = async(texto, info) => {
     let mensagem = new SpeechSynthesisUtterance()
-    let vozes = speechSynthesis.getVoices();
+    let vozes = speechSynthesis.getVoices()
     mensagem.text = texto
     mensagem.lang = info.lang
     mensagem.voice = vozes[info.voice]
@@ -91,6 +87,25 @@ const lerTexto = async(texto, info) => {
     speechSynthesis.speak(mensagem)
 }
 
+for (let readTextButton of readTextButtons) {
+    readTextButton.addEventListener('click', () => {
+        if(readTextButton.id == 'button-1'){
+            let infoTraducao = getTranslateInfo(languageFrom)
+            if(textareaFrom.value != ''){
+                lerTexto(textareaFrom.value, infoTraducao)
+            }else{
+                lerTexto(infoTraducao.placeholder, infoTraducao)
+            }
+        }else{
+            let infoTraducao = getTranslateInfo(languageTo)
+            if(textareaTo.value != ''){
+                lerTexto(textareaTo.value, infoTraducao)
+            }else{
+                lerTexto(infoTraducao.placeholder, infoTraducao)
+            }
+        }
+    })
+}
 
 
 // Traduzindo após trocar as línguas
@@ -148,14 +163,14 @@ copyButton.addEventListener('click', () => {
     navigator.clipboard.writeText(textareaTo.value)
 
     let span = document.createElement('span')
-    span.classList.add('absolute', 'top-[150%]', 'w-32', 'py-2', 'rounded-md', 'font-semibold', 'text-sm', 'bg-main', 'text-white', 'max-md:right-0', 'max-md:top-[200%]')
+    span.classList.add('absolute', 'top-[150%]', 'w-32', 'py-2', 'rounded-md', 'font-semibold', 'text-sm', 'bg-main', 'text-white', 'max-md:top-[200%]')
     span.textContent = 'Texto copiado!'
 
     copyButton.appendChild(span)
     
     setTimeout(() => {
         copyButton.removeChild(span)
-    }, 2000);
+    }, 2000)
 
 })
 
@@ -163,8 +178,8 @@ copyButton.addEventListener('click', () => {
 
 // Reconhecimento de Fala
 
-window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-const recognition = new SpeechRecognition(); 
+window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition
+const recognition = new SpeechRecognition() 
 
 talkButton.addEventListener('click', () => {
     recognition.lang = getTranslateInfo(languageFrom).lang
